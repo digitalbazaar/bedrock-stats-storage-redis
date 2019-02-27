@@ -1,0 +1,16 @@
+{
+  "name": "bedrock-stats-storage-redis-test",
+  "version": "0.0.1-0",
+  "private": true,
+  "scripts": {
+    "test": "redis-cli flushall && node --preserve-symlinks test test"
+  },
+  "dependencies": {
+    "bedrock": "^1.14.0",
+    "bedrock-jobs": "github:digitalbazaar/bedrock-jobs#3.x",
+    "bedrock-redis": "^3.4.0",
+    "bedrock-stats-storage-redis": "file:..",
+    "bedrock-test": "^2.1.0",
+    "uuid-random": "^1.0.6"
+  }
+}
