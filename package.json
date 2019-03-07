@@ -34,6 +34,7 @@
   "devDependencies": {
     "eslint": "^5.13.0",
     "eslint-config-digitalbazaar": "digitalbazaar/eslint-config-digitalbazaar#enhancement/valid-jsdoc",
+    "eslint-plugin-jsdoc": "^4.1.1",
     "jsdoc": "^3.5.5",
     "jsdoc-to-markdown": "^4.0.1"
   }

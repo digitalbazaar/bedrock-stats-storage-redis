@@ -31,11 +31,12 @@ describe('api', () => {
       result.should.be.an('array');
       result.should.have.length(2);
       const report = JSON.parse(result[0]);
+      delete report._nonce;
       report.should.eql(aReport);
       const created = parseInt(result[1]);
       created.should.equal(createdDate);
     });
-    it('stores a two reports with one monitor', async () => {
+    it('stores two reports with one monitor', async () => {
       const createdDate1 = 1551285871;
       const createdDate2 = 1551286871;
       const aReport1 = {statOne: 1, statTwo: 2};
@@ -52,10 +53,12 @@ describe('api', () => {
       result.should.be.an('array');
       result.should.have.length(4);
       let report = JSON.parse(result[0]);
+      delete report._nonce;
       report.should.eql(aReport1);
       let created = parseInt(result[1]);
       created.should.equal(createdDate1);
       report = JSON.parse(result[2]);
+      delete report._nonce;
       report.should.eql(aReport2);
       created = parseInt(result[3]);
       created.should.equal(createdDate2);
@@ -79,6 +82,7 @@ describe('api', () => {
       result.should.be.an('array');
       result.should.have.length(2);
       const reportA = JSON.parse(result[0]);
+      delete reportA._nonce;
       reportA.should.eql(aReport);
       let created = parseInt(result[1]);
       created.should.equal(createdDate);
@@ -88,6 +92,7 @@ describe('api', () => {
       result.should.be.an('array');
       result.should.have.length(2);
       const reportB = JSON.parse(result[0]);
+      delete reportB._nonce;
       reportB.should.eql(bReport);
       created = parseInt(result[1]);
       created.should.equal(createdDate);
@@ -99,6 +104,7 @@ describe('api', () => {
       }
     });
   }); // end insert API
+
   describe('find API', () => {
     it('properly returns all reports in report set one', async () => {
       await _initSet('set1');
@@ -142,6 +148,17 @@ describe('api', () => {
     });
   }); // end find API
 
+  describe('getMonitors API', () => {
+    it('returns a list of monitor IDs', async () => {
+      await _initSet('set1');
+      const result = await storage.getMonitorIds();
+      should.exist(result);
+      result.should.be.an('array');
+      result.should.have.length(2);
+      result.should.have.same.members(['a', 'b']);
+    });
+  }); // end getMonitors API
+
   describe('trimHistory API', () => {
     it('removes all history', async () => {
       await _initSet('set1');
@@ -177,7 +194,7 @@ describe('api', () => {
       result.should.be.an('array');
       result.should.have.length(49 * 2);
     });
-  });
+  }); // end trimHistory API
 });
 
 async function _initSet(setId) {

@@ -7,8 +7,9 @@
 
 * [bedrock-stats-storage-redis](#module_bedrock-stats-storage-redis)
     * [.find(options)](#module_bedrock-stats-storage-redis.find) ⇒ <code>Promise.&lt;Object&gt;</code>
+    * [.getMonitorIds()](#module_bedrock-stats-storage-redis.getMonitorIds) ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
     * [.insert(options)](#module_bedrock-stats-storage-redis.insert) ⇒ <code>Promise</code>
-    * [.purgeHistory(options)](#module_bedrock-stats-storage-redis.purgeHistory) ⇒ <code>Promise</code>
+    * [.trimHistory(options)](#module_bedrock-stats-storage-redis.trimHistory) ⇒ <code>Promise</code>
 
 <a name="module_bedrock-stats-storage-redis.find"></a>
 
@@ -25,6 +26,13 @@ Query stats history.
 | [options.endDate] | <code>number</code> \| <code>string</code> | <code>&#x27;+inf&#x27;</code> | The end date for the query   in ms since epoch. |
 | [options.startDate] | <code>number</code> \| <code>string</code> | <code>&#x27;-inf&#x27;</code> | The start date for the   query in ms since epoch. |
 
+<a name="module_bedrock-stats-storage-redis.getMonitorIds"></a>
+
+### bedrock-stats-storage-redis.getMonitorIds() ⇒ <code>Promise.&lt;Array.&lt;string&gt;&gt;</code>
+Get all known monitor IDs.
+
+**Kind**: static method of [<code>bedrock-stats-storage-redis</code>](#module_bedrock-stats-storage-redis)  
+**Returns**: <code>Promise.&lt;Array.&lt;string&gt;&gt;</code> - The monitor IDs.  
 <a name="module_bedrock-stats-storage-redis.insert"></a>
 
 ### bedrock-stats-storage-redis.insert(options) ⇒ <code>Promise</code>
@@ -38,10 +46,10 @@ Insert stats into history.
 | options | <code>Object</code> | The options to use. |
 | options.report | <code>Object</code> | The report to insert. |
 
-<a name="module_bedrock-stats-storage-redis.purgeHistory"></a>
+<a name="module_bedrock-stats-storage-redis.trimHistory"></a>
 
-### bedrock-stats-storage-redis.purgeHistory(options) ⇒ <code>Promise</code>
-Purge stats history.
+### bedrock-stats-storage-redis.trimHistory(options) ⇒ <code>Promise</code>
+Trim stats history.
 
 **Kind**: static method of [<code>bedrock-stats-storage-redis</code>](#module_bedrock-stats-storage-redis)  
 **Returns**: <code>Promise</code> - The Redis transaction summary.  
@@ -49,5 +57,5 @@ Purge stats history.
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>Object</code> | The options to use. |
-| options.beforeDate | <code>number</code> | All history before this   date(ms since epoch) will be purged from history. |
+| options.beforeDate | <code>number</code> | All history before this   date(ms since epoch) will be removed from history. |
 
