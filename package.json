@@ -24,8 +24,9 @@
     "assert-plus": "^1.0.0"
   },
   "peerDependencies": {
-    "bedrock": "^1.12.0",
+    "bedrock": "^1.15.0",
     "bedrock-jobs": "^3.0.0",
+    "bedrock-package-manager": "1.0.0",
     "bedrock-redis": "^3.4.0"
   },
   "engines": {
@@ -33,8 +34,8 @@
   },
   "devDependencies": {
     "eslint": "^5.13.0",
-    "eslint-config-digitalbazaar": "digitalbazaar/eslint-config-digitalbazaar#enhancement/valid-jsdoc",
-    "eslint-plugin-jsdoc": "^4.1.1",
+    "eslint-config-digitalbazaar": "^2.0.0",
+    "eslint-plugin-jsdoc": "^4.4.3",
     "jsdoc": "^3.5.5",
     "jsdoc-to-markdown": "^4.0.1"
   }

@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const uuid = require('uuid-random');
+const {util: {uuid}} = require('bedrock');
 
 exports.reportStartTime = 1519749871;
 const reports = exports.reports = {};

@@ -6,11 +6,11 @@
     "test": "redis-cli flushall && node --preserve-symlinks test test"
   },
   "dependencies": {
-    "bedrock": "^1.14.0",
-    "bedrock-jobs": "github:digitalbazaar/bedrock-jobs#3.x",
+    "bedrock": "^1.15.0",
+    "bedrock-jobs": "^3.0.0",
+    "bedrock-package-manager": "1.0.0",
     "bedrock-redis": "^3.4.0",
     "bedrock-stats-storage-redis": "file:..",
-    "bedrock-test": "^2.1.0",
-    "uuid-random": "^1.0.6"
+    "bedrock-test": "^2.1.0"
   }
 }
