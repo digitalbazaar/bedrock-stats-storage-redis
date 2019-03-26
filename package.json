@@ -1,6 +1,6 @@
 {
   "name": "bedrock-stats-storage-redis",
-  "version": "0.0.1-0",
+  "version": "1.0.0",
   "description": "Redis storage for Bedrock stats",
   "main": "lib",
   "scripts": {
